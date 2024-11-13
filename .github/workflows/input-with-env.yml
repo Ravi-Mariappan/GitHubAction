@@ -1,0 +1,15 @@
+name: "Basic Workflow dispatcher Example with ENV input"
+
+on:
+  workflow_dispatch:
+    inputs:
+      enviroment:
+        description: "this is Enviroment"
+        required: true
+        type: enviroment
+ 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to ${{ github.event.inputs.enviroment}}" Enviroment
