@@ -1,0 +1,16 @@
+name: Test the Node JS Application
+on: push
+jobs:
+  First-job:
+    runs-on: unbutu-latest
+    steps:
+      - name: Get the Code
+        uses: action/checkout@v3
+      - name: Install node JS
+        uses: action/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Test
+        run: npm test
