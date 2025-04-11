@@ -1,0 +1,20 @@
+name: "Basic Workflow dispatcher Example with CHOICE input"
+
+on:
+  workflow_dispatch:
+    inputs:
+      enviroment:
+        description: "this is Enviroment"
+        required: true
+        default: "Production"
+        type: choice
+        options:
+          - Production
+          - Qa
+          - Dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to ${{ github.event.inputs.enviroment}}" Enviroment
